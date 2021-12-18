@@ -1,6 +1,6 @@
-﻿namespace AwsSns.Domain.Dtos
+﻿namespace AwsSns.Domain.Entities.Dao
 {
-    public class SubscribeRequest
+    public class SubscribeRequestDao
     {
         public string TopicArn { get; set; }
         public string EndPoint { get; set; }

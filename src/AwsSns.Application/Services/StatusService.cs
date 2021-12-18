@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
 using AwsSns.Application.Interfaces;
-using AwsSns.Domain.Dtos;
+using AwsSns.Domain.Entities.Dto;
 using AwsSns.Domain.Interfaces;
 
 namespace AwsSns.Application.Services

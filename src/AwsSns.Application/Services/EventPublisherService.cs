@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using AwsSns.Domain.Dtos;
-using AwsSns.Domain.Entities;
+using AwsSns.Domain.Entities.Dao;
+using AwsSns.Domain.Entities.Dto;
 using AwsSns.Domain.Interfaces;
 using System.Threading.Tasks;
 
@@ -19,7 +19,7 @@ namespace AwsSns.Application.Services
 
         public async Task<PublishResponseDto> PublishEventAsync(PublishRequestDto publishRequestDto)
         {
-            var publisher = _mapper.Map<PublishRequest>(publishRequestDto);
+            var publisher = _mapper.Map<PublishRequestDao>(publishRequestDto);
 
             var publishResponse = await _amazonSnsClient.PublishEventAsync(publisher);
 
@@ -28,7 +28,7 @@ namespace AwsSns.Application.Services
 
         public async Task<SubscribeResponseDto> SubscribeAsync(SubscribeRequestDto subscribeRequestDto)
         {
-            var subscription = _mapper.Map<SubscribeRequest>(subscribeRequestDto);
+            var subscription = _mapper.Map<SubscribeRequestDao>(subscribeRequestDto);
 
             var subscriptionResponse = await _amazonSnsClient.SubscribeAsync(subscription);
 
@@ -37,7 +37,7 @@ namespace AwsSns.Application.Services
 
         public async Task<UnsubscribeResponseDto> UnsubscribeAsync(UnsubscribeRequestDto unsubscribeRequestDto)
         {
-            var unsubscribeRequest = _mapper.Map<UnsubscribeRequest>(unsubscribeRequestDto);
+            var unsubscribeRequest = _mapper.Map<UnsubscribeRequestDao>(unsubscribeRequestDto);
 
             var unsubscribeResponse = await _amazonSnsClient.UnsubscribeAsync(unsubscribeRequest);
 

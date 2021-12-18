@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using AwsSns.Domain.Dtos;
 using AwsSns.Domain.Entities;
+using AwsSns.Domain.Entities.Dao;
+using AwsSns.Domain.Entities.Dto;
 
 namespace AwsSns.Application.Mappers
 {
@@ -11,16 +12,16 @@ namespace AwsSns.Application.Mappers
             CreateMap<Status, StatusResponse>();
 
             // Publish 
-            CreateMap<PublishRequestDto, PublishRequest>();
-            CreateMap<PublishResponse, PublishResponseDto>();
+            CreateMap<PublishRequestDto, PublishRequestDao>();
+            CreateMap<PublishResponseDao, PublishResponseDto>();
 
             // Subscribe
-            CreateMap<SubscribeRequestDto, SubscribeRequest>();
-            CreateMap<SubscribeResponse, SubscribeResponseDto>();
+            CreateMap<SubscribeRequestDto, SubscribeRequestDao>();
+            CreateMap<SubscribeResponseDao, SubscribeResponseDto>();
 
             // Unsubscribe
-            CreateMap<UnsubscribeRequestDto, UnsubscribeRequest>();
-            CreateMap<UnsubscribeResponse, UnsubscribeResponseDto>();
+            CreateMap<UnsubscribeRequestDto, UnsubscribeRequestDao>();
+            CreateMap<UnsubscribeResponseDao, UnsubscribeResponseDto>();
         }
     }
 }

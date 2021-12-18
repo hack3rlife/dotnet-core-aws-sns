@@ -1,5 +1,5 @@
-﻿using AwsSns.Domain.Dtos;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using AwsSns.Domain.Entities.Dao;
 
 namespace AwsSns.Domain.Interfaces
 {
@@ -11,22 +11,22 @@ namespace AwsSns.Domain.Interfaces
         /// <summary>
         /// Manages publish requests and responses from Amazon Simple Notification Service 
         /// </summary>
-        /// <param name="publisherRequest">The <see cref="PublishRequest"/> values to be sent to Amazon Simple Notification Service.</param>
-        /// <returns>A <see cref="PublishResponse"/></returns>
-        Task<PublishResponse> PublishEventAsync(PublishRequest publisherRequest);
+        /// <param name="publisherRequest">The <see cref="PublishRequestDao"/> values to be sent to Amazon Simple Notification Service.</param>
+        /// <returns>A <see cref="PublishResponseDao"/></returns>
+        Task<PublishResponseDao> PublishEventAsync(PublishRequestDao publisherRequest);
 
         /// <summary>
         /// Manages subscribe requests and responses from Amazon Simple Notification Service 
         /// </summary>
-        /// <param name="subscribeRequest">The <see cref="SubscribeRequest"/> values to subscribe to a topic in Amazon Simple Notification Service.</param>
-        /// <returns>A <see cref="SubscribeResponse"/></returns>
-        Task<SubscribeResponse> SubscribeAsync(SubscribeRequest subscribeRequest);
+        /// <param name="subscribeRequest">The <see cref="SubscribeRequestDao"/> values to subscribe to a topic in Amazon Simple Notification Service.</param>
+        /// <returns>A <see cref="SubscribeResponseDao"/></returns>
+        Task<SubscribeResponseDao> SubscribeAsync(SubscribeRequestDao subscribeRequest);
 
         /// <summary>
         /// Manages unsubscribe requests and responses from Amazon Simple Notification Service 
         /// </summary>
-        /// <param name="unsubscribeRequest">The <see cref="UnsubscribeRequest"/> values to unsubscribe from a topic in Amazon Simple Notification Service.</param>
-        /// <returns>A <see cref="UnsubscribeResponse"/></returns>
-        Task<UnsubscribeResponse> UnsubscribeAsync(UnsubscribeRequest unsubscribeRequest);
+        /// <param name="unsubscribeRequest">The <see cref="UnsubscribeRequestDao"/> values to unsubscribe from a topic in Amazon Simple Notification Service.</param>
+        /// <returns>A <see cref="UnsubscribeResponseDao"/></returns>
+        Task<UnsubscribeResponseDao> UnsubscribeAsync(UnsubscribeRequestDao unsubscribeRequest);
     }
 }

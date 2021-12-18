@@ -360,3 +360,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# ignore appsettings configuration files
+**/appsettings.[Dd]evelopment.json
+**/appsettings.[Pp]roduction.json

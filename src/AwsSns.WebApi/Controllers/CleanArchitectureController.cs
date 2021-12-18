@@ -1,9 +1,9 @@
 ﻿using AwsSns.Application.Interfaces;
-using AwsSns.Domain.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
+using AwsSns.Domain.Entities.Dto;
 
 namespace AwsSns.WebApi.Controllers
 {

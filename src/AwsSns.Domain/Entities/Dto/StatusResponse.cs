@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AwsSns.Domain.Dtos
+namespace AwsSns.Domain.Entities.Dto
 {
     public class StatusResponse
     {

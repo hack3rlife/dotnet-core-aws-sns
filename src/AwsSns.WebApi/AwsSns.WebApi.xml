@@ -20,7 +20,7 @@
             <summary>
             Get the status of the service
             </summary>
-            <returns>The service <see cref="T:AwsSns.Domain.Dtos.StatusResponse"/></returns>
+            <returns>The service <see cref="T:AwsSns.Domain.Entities.Dto.StatusResponse"/></returns>
         </member>
     </members>
 </doc>

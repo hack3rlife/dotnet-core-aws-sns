@@ -3,7 +3,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using AwsSns.Application.Mappers;
 using AwsSns.Application.Services;
-using AwsSns.Domain.Dtos;
+using AwsSns.Domain.Entities.Dao;
+using AwsSns.Domain.Entities.Dto;
 using AwsSns.Domain.Interfaces;
 using FluentAssertions;
 using LoremNET;
@@ -31,14 +32,14 @@ namespace Application.UnitTest.Services
         public async Task EventPublisher_Pusblish_Success()
         {
             // Arrange
-            var publishResponse = new PublishResponse
+            var publishResponse = new PublishResponseDao
             {
                 MessageId = "MessageId",
                 SequenceNumber = "SequenceNumber"
             };
 
             _mockAmazonSnsClient
-                .Setup(x => x.PublishEventAsync(It.IsAny<PublishRequest>()))
+                .Setup(x => x.PublishEventAsync(It.IsAny<PublishRequestDao>()))
                 .ReturnsAsync(publishResponse)
                 .Verifiable();
 
@@ -54,20 +55,20 @@ namespace Application.UnitTest.Services
 
             // Assert
             publishResponseDto.Should().NotBeNull();
-            _mockAmazonSnsClient.Verify(x=>x.PublishEventAsync(It.IsAny<PublishRequest>()), Times.Once);
+            _mockAmazonSnsClient.Verify(x=>x.PublishEventAsync(It.IsAny<PublishRequestDao>()), Times.Once);
         }
 
         [Fact]
         public async Task EventPublisher_Subscribe_Success()
         {
             // Arrange
-            var subscribeResponse = new SubscribeResponse
+            var subscribeResponse = new SubscribeResponseDao
             {
                 SubscriptionArn = "SubscriptionArn"
             };
 
             _mockAmazonSnsClient
-                .Setup(x => x.SubscribeAsync(It.IsAny<SubscribeRequest>()))
+                .Setup(x => x.SubscribeAsync(It.IsAny<SubscribeRequestDao>()))
                 .ReturnsAsync(subscribeResponse)
                 .Verifiable();
 
@@ -83,17 +84,17 @@ namespace Application.UnitTest.Services
 
             // Assert
             subscribeResponseDto.Should().NotBeNull();
-            _mockAmazonSnsClient.Verify(x=>x.SubscribeAsync(It.IsAny<SubscribeRequest>()), Times.Once);
+            _mockAmazonSnsClient.Verify(x=>x.SubscribeAsync(It.IsAny<SubscribeRequestDao>()), Times.Once);
         }
 
         [Fact]
         public async Task EventPublisher_Unsubscribe_Success()
         {
             // Arrange
-            var unsubscribeResponse = new UnsubscribeResponse();
+            var unsubscribeResponse = new UnsubscribeResponseDao();
 
             _mockAmazonSnsClient
-                .Setup(x => x.UnsubscribeAsync(It.IsAny<UnsubscribeRequest>()))
+                .Setup(x => x.UnsubscribeAsync(It.IsAny<UnsubscribeRequestDao>()))
                 .ReturnsAsync(unsubscribeResponse)
                 .Verifiable();
 
@@ -108,7 +109,7 @@ namespace Application.UnitTest.Services
             // Assert
             unsubscribeResponseDto.Should().NotBeNull();
 
-            _mockAmazonSnsClient.Verify(x => x.UnsubscribeAsync(It.IsAny<UnsubscribeRequest>()));
+            _mockAmazonSnsClient.Verify(x => x.UnsubscribeAsync(It.IsAny<UnsubscribeRequestDao>()));
         }
 
     }

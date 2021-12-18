@@ -1,9 +1,9 @@
-﻿namespace AwsSns.Domain.Dtos
+﻿namespace AwsSns.Domain.Entities.Dao
 {
     /// <summary>
     /// Data Access Class to manage requests from Amazon Simple Notification Service 
     /// </summary>
-    public class PublishRequest
+    public class PublishRequestDao
     {
         public string TopicArn { get; set; }
         public string Message { get; set; }

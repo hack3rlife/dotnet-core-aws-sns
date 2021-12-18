@@ -1,5 +1,5 @@
-﻿using AwsSns.Domain.Dtos;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using AwsSns.Domain.Entities.Dto;
 
 namespace AwsSns.Domain.Interfaces
 {

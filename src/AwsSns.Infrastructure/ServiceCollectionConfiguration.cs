@@ -17,6 +17,7 @@ namespace AwsSns.Infrastructure
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IStatusRepository, StatusRepository>();
+            services.AddScoped<IAmazonSnsClient, AmazonSnsClient>();
 
             services.AddDbContext<CleanArchitectureDbContext>(options =>
             {

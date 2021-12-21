@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using AwsSns.Application;
+using AwsSns.Domain.Entities;
 using AwsSns.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -16,16 +17,17 @@ namespace AwsSns.WebApi
 {
     public class Startup
     {
+        private IConfiguration _configuration { get; }
+
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _configuration = configuration;
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
@@ -55,10 +57,10 @@ namespace AwsSns.WebApi
             });
 
             //Registering Application Layer Dependencies
-            services.AddApplicationServices(Configuration);
+            services.AddApplicationServices(_configuration);
 
             //Registering Infrastructure Layer Dependencies
-            services.AddInfrastructureServices(Configuration);
+            services.AddInfrastructureServices(_configuration);
 
             services.AddControllers();
         }
